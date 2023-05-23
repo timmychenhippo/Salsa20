@@ -12,7 +12,10 @@ static inline uint32_t u8t32le(uint8_t p[4]);
 
 class Salsa20
 {
-public:
+private:
+	uint8_t block[64]; //516-bit
+	uint32_t stream[16]; //516-bit ; //Keys stream:(Key(256-bit)+IV(96-bit)+Counter(32-bit))& Algorithm 
+	uint8_t round;
 
 	/**
 	* \Key:32-byte(256-bit)
@@ -35,6 +38,9 @@ public:
 		const size_t Size = 64;
 
 	}Ktools;
+	const Ktools tool;
+
+public:
 
 	explicit Salsa20(uint8_t numRounds = 20);
 	~Salsa20();
@@ -50,11 +56,4 @@ public:
 	void encrypt(uint8_t* output, const uint8_t* input, uint8_t len);
 	void hashCore(uint32_t* output, uint8_t* input);
 	void decrypt(uint8_t* output, const uint8_t* input, uint8_t len);
-
-private:
-	uint8_t block[64]; //516-bit
-	uint32_t stream[16]; //516-bit ; //Keys stream:(Key(256-bit)+IV(96-bit)+Counter(32-bit))& Algorithm 
-	uint8_t round;
-	const Ktools tool;
-
 };
