@@ -53,7 +53,7 @@ public:
 	bool setIV(const Ktools* tool);
 	bool setCounter(const Ktools* tool);
 	bool initBlock();
-	void encrypt(uint8_t* output, const uint8_t* input, uint8_t len);
+	void encrypt(uint8_t* output, const uint8_t* input, uint32_t len);
 	void hashCore(uint32_t* output, uint8_t* input);
-	void decrypt(uint8_t* output, const uint8_t* input, uint8_t len);
+	void decrypt(uint8_t* output, const uint8_t* input, uint32_t len);
 };

@@ -112,13 +112,13 @@ bool Salsa20::initBlock()
 {
     return setKey(&(tool)) && setIV(&(tool)) && setCounter(&(tool));
 }
-void Salsa20::encrypt(uint8_t* output, const uint8_t* input, uint8_t len)
+void Salsa20::encrypt(uint8_t* output, const uint8_t* input, uint32_t len)
 {
     if (!initBlock())
     {
         return;
     }
-    for (uint8_t i = 0; i < len; i += 64)
+    for (uint32_t i = 0; i < len; i += 64)
     {
         hashCore(stream, block);
         uint8_t stream8[64];
@@ -175,7 +175,7 @@ void Salsa20::hashCore(uint32_t* output, uint8_t* input)
         output[posn] = (output[posn] + input32[posn]);
     }
 }
-void Salsa20::decrypt(uint8_t* output, const uint8_t* input, uint8_t len)
+void Salsa20::decrypt(uint8_t* output, const uint8_t* input, uint32_t len)
 {
     encrypt(output, input, len);
 }
