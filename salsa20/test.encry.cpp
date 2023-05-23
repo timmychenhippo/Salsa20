@@ -65,8 +65,8 @@ void hex_print(uint8_t* pv, uint16_t len)
 
 int main()
 {
-	Salsa20 chacha;
-	Salsa20 chacha2;
+	Salsa20 salsa;
+	Salsa20 salsa2;
 	mavlink_test1_t test1 = generate();
 	mavlink_test2_t test2 = generate2();
 	mavlink_test2_t test4;
@@ -85,8 +85,8 @@ int main()
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	chacha.encrypt(encrypt, (uint8_t*)packet, MAVLINK_MSG_ID_TEST2);
-	chacha2.decrypt(decrypt, encrypt, MAVLINK_MSG_ID_TEST2);
+	salsa.encrypt(encrypt, (uint8_t*)packet, MAVLINK_MSG_ID_TEST2);
+	salsa.decrypt(decrypt, encrypt, MAVLINK_MSG_ID_TEST2);
 
 	auto end = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> duration = end - start;

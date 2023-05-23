@@ -20,14 +20,14 @@ static inline void clean(void* dest, size_t size){
     }
 }
 
-static inline void u32t8le(uint32_t v, uint8_t p[4]) {
+static inline void u32t8le(const uint32_t v, uint8_t p[4]) {
     p[0] = v & 0xff;
     p[1] = (v >> 8) & 0xff;
     p[2] = (v >> 16) & 0xff;
     p[3] = (v >> 24) & 0xff;
 }
 
-static inline uint32_t u8t32le(uint8_t p[4]) {
+static inline uint32_t u8t32le(const uint8_t p[4]) {
     uint32_t value = p[3];
 
     value = (value << 8) | p[2];
