@@ -93,15 +93,15 @@ bool Salsa20::setIV(const Ktools* tools)
         return false;
     }
 }
-bool Salsa20::setCounter(const Ktools* tool)
+bool Salsa20::setCounter(const Ktools* tools)
 {
     uint8_t counter[4];
-    u32t8le(tool->counter, counter);   //default 0
-    if (tool->counterSize == 8)
+    u32t8le(tools->counter, counter);   //default 0
+    if (tools->counterSize == 8)
     {
         //Little - Endian
-        memcpy(block + 32, counter, (tool->counterSize / 2));
-        memset(block + 36, 0, (tool->counterSize / 2));
+        memcpy(block + 32, counter, (tools->counterSize / 2));
+        memset(block + 36, 0, (tools->counterSize / 2));
         return true;
     }
     else {

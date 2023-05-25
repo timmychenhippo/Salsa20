@@ -49,9 +49,9 @@ public:
 
 	uint8_t numRounds() const { return round; }
 
-	bool setKey(const Ktools* tool);
-	bool setIV(const Ktools* tool);
-	bool setCounter(const Ktools* tool);
+	bool setKey(const Ktools* tools);
+	bool setIV(const Ktools* tools);
+	bool setCounter(const Ktools* tools);
 	bool initBlock();
 	void encrypt(uint8_t* output, const uint8_t* input, uint32_t len);
 	void hashCore(uint32_t* output, uint8_t* input);
