@@ -1,4 +1,5 @@
-Salsa20 Encryption for MAVLink on ArduPilot
+# Salsa20 Encryption for MAVLink on ArduPilot
+
 This project implements the Salsa20 encryption algorithm and applies it to encrypt MAVLink communication in the ArduPilot system. The project includes a test file (test.cpp) that simulates the encryption process with a sample MAVLink message.
 
 Project Overview
